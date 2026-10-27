@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -27,7 +26,47 @@
 </div>
 <nav class="tabs"><button class="tab active" data-page="home" onclick="goPage('home')"><span>⌂</span>Today</button><button class="tab" data-page="rewards" onclick="goPage('rewards')"><span>🎀</span>Rewards</button><button class="tab" data-page="achievements" onclick="goPage('achievements')"><span>🏆</span>Wins</button><button class="tab" data-page="settings" onclick="goPage('settings')"><span>⚙</span>Settings</button></nav>
 <div id="toast" class="toast hide"></div>
-<script>
+<YOUR PERSONAL LIFE RPG
+The Life Edit ✿
+
+✧
+A LITTLE PROGRESS, EVERY DAY
+Your life, gently levelled up.
+Build a life that feels like yours. Small steps count. Rest counts, too.
+
+Level 1 · The Beginning
+0 / 250 XP
+🌷
+0
+spendable XP
+✨
+0
+total XP earned
+🔥
+0
+day streak
+Today's little quests
+Choose what supports you today.
+0 / 0 done
+
+Your next chapter
+Progress over perfection.
+🪞
+Make space for you
+One small thing that makes your day feel more like yours.
+🌱
+Keep it gentle
+You don't have to do everything to be moving forward.
+made with a little magic and a lot of grace ✿
+⌂
+Today
+🎀
+Rewards
+🏆
+Wins
+⚙
+Settings
+script>
 const KEY='theLifeEdit_v1';
 const defaultQuests=[
 {id:'water',title:'Have a drink of water',desc:'A small act of care for future you.',xp:15,icon:'💧'},
@@ -77,8 +116,4 @@ function addQuest(){let title=document.getElementById('newQuest').value.trim();i
 function addReward(){let title=document.getElementById('newReward').value.trim(),cost=Number(document.getElementById('newCost').value);if(!title||!Number.isFinite(cost)||cost<1||cost>10000){toast('Add a reward name and XP cost first 🎀');return}state.rewards.push({id:'reward-'+Date.now(),title,desc:'A reward you chose for yourself.',cost:Math.round(cost),icon:'🎁',custom:true});document.getElementById('newReward').value='';document.getElementById('newCost').value='';save();render();toast('Reward added to your boutique!')}
 function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='the-life-edit-backup.json';a.click();URL.revokeObjectURL(url);document.getElementById('backupStatus').textContent='Backup export requested. Check your Files or Downloads.'}
 function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let s=JSON.parse(r.result);if(!s||!Array.isArray(s.quests)||!Array.isArray(s.rewards)||typeof s.xp!=='number')throw Error();if(!confirm('Restore this backup? It will replace the progress currently saved in this browser.'))return;state=s;save();render();document.getElementById('backupStatus').textContent='Backup restored successfully.';toast('Your progress is back! 💗')}catch(err){alert('That file does not look like a valid Life Edit backup.')}e.target.value=''};r.readAsText(f)}
-function resetData(){if(!confirm('Reset all Life Edit progress in this browser? This cannot be undone unless you exported a backup.'))return;state=fresh();save();render();toast('Fresh start. You’ve got this 🌱')}
-render();
-</script>
-</body>
-</html>
+function resetData(){if(!confirm('Reset all Life Edit progress in this browser? This cannot be undone unless you exported a backup.'))return;state=fresh();save();render();toast('Fresh start. You
